@@ -18,6 +18,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class User {
+
     @Id
     @Column(columnDefinition = "BINARY(16)")
     private UUID id = UUID.randomUUID();
@@ -32,7 +33,7 @@ public class User {
     private LocalDate birthDay;
 
     @Column(name = "grade")
-    private  Integer grade;
+    private Integer grade;
 
     @Column(name = "profile_file_name")
     private String profileFileName;
