@@ -1,5 +1,5 @@
 config:
-  name: new-pick
+  name: dsm-login
   prefix: "/dsm-login"
   service_type: be
   port: 8080
