@@ -19,6 +19,6 @@ public class ClassNumberDuplicatedCheckService {
         ) {
             return new DuplicateResponse(true);
         }
-        else return new DuplicateResponse(false);
+        return new DuplicateResponse(false);
     }
 }

@@ -17,6 +17,6 @@ public class AccountIdDuplicatedCheckService {
         if(userRepository.existsByAccountId(accountId)) {
             return new DuplicateResponse(true);
         }
-        else return new DuplicateResponse(false);
+        return new DuplicateResponse(false);
     }
 }
