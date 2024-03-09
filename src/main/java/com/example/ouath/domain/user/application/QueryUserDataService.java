@@ -28,6 +28,7 @@ public class QueryUserDataService {
         if(!passwordEncoder.matches(request.getPassword(), user.getPassword())) throw PasswordMisMatchException.EXCEPTION;
 
         return UserDataResponse.builder()
+                .id(user.getId())
                 .account_id(user.getAccountId())
                 .password(user.getPassword())
                 .name(user.getName())
