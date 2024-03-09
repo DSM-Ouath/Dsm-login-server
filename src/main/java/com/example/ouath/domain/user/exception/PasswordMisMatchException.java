@@ -8,6 +8,6 @@ public class PasswordMisMatchException extends BusinessException {
     public static final BusinessException EXCEPTION = new PasswordMisMatchException();
 
     public PasswordMisMatchException() {
-        super(ErrorCode.USER_NOT_FOUND);
+        super(ErrorCode.PASSWORD_MIS_MATCH);
     }
 }
