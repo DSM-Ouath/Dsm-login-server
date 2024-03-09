@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -20,7 +21,12 @@ import java.util.UUID;
 public class User {
 
     @Id
-    @Column(columnDefinition = "BINARY(16)")
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "uuid2")
+    @Column(
+            columnDefinition = "BINARY(16)",
+            nullable = false
+    )
     private UUID id = UUID.randomUUID();
 
     @Column(name = "name")
@@ -29,7 +35,7 @@ public class User {
     @Column(name = "entrance_year")
     private Integer entranceYear;
 
-    @Column(name = "birt_day")
+    @Column(name = "birth_day")
     private LocalDate birthDay;
 
     @Column(name = "grade")
