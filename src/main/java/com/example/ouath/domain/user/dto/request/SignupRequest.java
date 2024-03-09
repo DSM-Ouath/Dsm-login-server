@@ -12,13 +12,13 @@ public class SignupRequest {
 
     private String name;
 
-    private LocalDate birthday;
+    private LocalDate birth_day;
 
-    private Integer classNumber;
+    private Integer class_number;
 
-    private String accountId;
+    private String account_id;
 
     private String password;
 
-    private String passwordCheck;
+    private String password_check;
 }

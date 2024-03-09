@@ -22,17 +22,17 @@ public class SignupService {
     @Transactional
     public void signup(SignupRequest request) {
 
-        if(!request.getPassword().equals(request.getPasswordCheck())) throw PasswordMisMatchException.EXCEPTION;
+        if(!request.getPassword().equals(request.getPassword_check())) throw PasswordMisMatchException.EXCEPTION;
 
         userRepository.save(
                 User.builder()
                         .name(request.getName())
                         .entranceYear(24) // 일단은 입학년도를 24년도로 고정해둠
-                        .birthDay(request.getBirthday())
-                        .grade(request.getClassNumber()/1000)
-                        .classNum(request.getClassNumber()%1000/100)
-                        .num(request.getClassNumber()%100)
-                        .accountId(request.getAccountId())
+                        .birthDay(request.getBirth_day())
+                        .grade(request.getClass_number()/1000)
+                        .classNum(request.getClass_number()%1000/100)
+                        .num(request.getClass_number()%100)
+                        .accountId(request.getAccount_id())
                         .password(passwordEncoder.encode(request.getPassword()))
                         .userState(UserState.CREATED)
                         .role(UserRole.STU)
