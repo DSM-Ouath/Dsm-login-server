@@ -1,7 +1,7 @@
 package com.example.ouath.domain.user.domain;
 
-import com.example.ouath.domain.user.enums.UserRole;
-import com.example.ouath.domain.user.enums.UserState;
+import com.example.ouath.domain.user.domain.enums.UserRole;
+import com.example.ouath.domain.user.domain.enums.UserState;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
