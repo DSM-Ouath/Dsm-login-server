@@ -29,6 +29,7 @@ public class QueryUserDataService {
             throw PasswordMisMatchException.EXCEPTION;
 
         return UserDataResponse.builder()
+                .id(user.getId())
                 .account_id(user.getAccountId())
                 .password(user.getPassword())
                 .name(user.getName())
