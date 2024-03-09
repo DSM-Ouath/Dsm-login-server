@@ -24,7 +24,7 @@ public class UserController {
 
     private final ClassNumberDuplicatedCheckService classNumberDuplicatedCheckService;
 
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/signup")
     public void signup(@RequestBody @Valid SignupRequest request) {
         signupService.signup(request);
