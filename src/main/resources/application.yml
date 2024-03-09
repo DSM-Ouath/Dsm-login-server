@@ -6,10 +6,7 @@ spring:
     url: ${DB_URL}
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
-  servlet:
-    multipart:
-      max-file-size: 10MB
-      max-request-size: 10MB
+
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     open-in-view: false
@@ -19,5 +16,5 @@ spring:
 
 server:
   servlet:
-    context-path: /jung-ho
+    context-path: /dsm-login
   port: 8080
