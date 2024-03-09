@@ -22,7 +22,8 @@ public class SignupService {
     @Transactional
     public void signup(SignupRequest request) {
 
-        if(!request.getPassword().equals(request.getPassword_check())) throw PasswordMisMatchException.EXCEPTION;
+        if(!request.getPassword().equals(request.getPassword_check()))
+            throw PasswordMisMatchException.EXCEPTION;
 
         userRepository.save(
                 User.builder()

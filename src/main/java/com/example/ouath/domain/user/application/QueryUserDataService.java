@@ -25,7 +25,8 @@ public class QueryUserDataService {
         User user = userRepository.findByAccountId(request.getAccountId())
                 .orElseThrow(()-> UserNotFoundException.EXCEPTION);
 
-        if(!passwordEncoder.matches(request.getPassword(), user.getPassword())) throw PasswordMisMatchException.EXCEPTION;
+        if(!passwordEncoder.matches(request.getPassword(), user.getPassword()))
+            throw PasswordMisMatchException.EXCEPTION;
 
         return UserDataResponse.builder()
                 .account_id(user.getAccountId())

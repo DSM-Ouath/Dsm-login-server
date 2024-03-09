@@ -14,7 +14,9 @@ public class ClassNumberDuplicatedCheckService {
 
     @Transactional(readOnly = true)
     public DuplicateResponse classNumberDuplicatedCheck(Integer classNumber) {
-        if(userRepository.existsByGradeAndClassNumAndNum(classNumber/1000, classNumber%1000/100, classNumber%100)) {
+        if(userRepository.existsByGradeAndClassNumAndNum(
+                classNumber/1000, classNumber%1000/100, classNumber%100)
+        ) {
             return new DuplicateResponse(true);
         }
         else return new DuplicateResponse(false);
