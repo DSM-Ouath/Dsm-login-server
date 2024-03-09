@@ -1,5 +1,7 @@
 package com.example.ouath.domain.user.dto.request;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -22,7 +24,8 @@ public class SignupRequest {
     private LocalDate birth_day;
 
     @NotNull
-    @Size(min = 4, max = 4, message = "학번은 4글자 이어야 합니다.")
+    @Max(value = 9999, message = "학번은 4자리 이어야 합니다.")
+    @Min(value = 1000, message = "학번은 4자리 이어야 합니다.")
     private Integer class_number;
 
     @NotBlank
