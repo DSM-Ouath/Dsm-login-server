@@ -10,8 +10,5 @@ import lombok.NoArgsConstructor;
 public class UserDataRequest {
 
     @NotBlank
-    private String accountId;
-
-    @NotBlank
     private String password;
 }

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -52,7 +53,7 @@ public class UserController {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/user-data")
-    public UserDataResponse queryUserData(@RequestBody @Valid UserDataRequest request) {
-        return queryUserDataService.queryUserDate(request);
+    public UserDataResponse queryUserData(@RequestParam("account_id") String accountId, @RequestBody @Valid UserDataRequest request) {
+        return queryUserDataService.queryUserDate(accountId, request);
     }
 }
