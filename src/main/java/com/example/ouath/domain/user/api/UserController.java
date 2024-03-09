@@ -1,5 +1,6 @@
 package com.example.ouath.domain.user.api;
 
+import com.example.ouath.domain.user.application.AccountIdDuplicatedCheckService;
 import com.example.ouath.domain.user.application.ClassNumberDuplicatedCheckService;
 import com.example.ouath.domain.user.application.SignupService;
 import com.example.ouath.domain.user.dto.request.SignupRequest;
@@ -24,6 +25,8 @@ public class UserController {
 
     private final ClassNumberDuplicatedCheckService classNumberDuplicatedCheckService;
 
+    private final AccountIdDuplicatedCheckService accountIdDuplicatedCheckService;
+
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/signup")
     public void signup(@RequestBody @Valid SignupRequest request) {
@@ -31,8 +34,14 @@ public class UserController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping("/{classNumber}")
+    @GetMapping("/class-number-check/{classNumber}")
     public DuplicateResponse classNumberDuplicatedCheck(@PathVariable Integer classNumber) {
         return classNumberDuplicatedCheckService.classNumberDuplicatedCheck(classNumber);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/account-id-check/{accountId}")
+    public DuplicateResponse accountIdDuplicatedCheck(@PathVariable String accountId) {
+        return accountIdDuplicatedCheckService.accountIdDuplicatedCheck(accountId);
     }
 }
