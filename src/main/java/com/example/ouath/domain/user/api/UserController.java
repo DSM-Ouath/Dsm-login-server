@@ -2,9 +2,12 @@ package com.example.ouath.domain.user.api;
 
 import com.example.ouath.domain.user.application.AccountIdDuplicatedCheckService;
 import com.example.ouath.domain.user.application.ClassNumberDuplicatedCheckService;
+import com.example.ouath.domain.user.application.QueryUserDataService;
 import com.example.ouath.domain.user.application.SignupService;
 import com.example.ouath.domain.user.dto.request.SignupRequest;
+import com.example.ouath.domain.user.dto.request.UserDataRequest;
 import com.example.ouath.domain.user.dto.response.DuplicateResponse;
+import com.example.ouath.domain.user.dto.response.UserDataResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -27,6 +30,8 @@ public class UserController {
 
     private final AccountIdDuplicatedCheckService accountIdDuplicatedCheckService;
 
+    private final QueryUserDataService queryUserDataService;
+
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/signup")
     public void signup(@RequestBody @Valid SignupRequest request) {
@@ -43,5 +48,11 @@ public class UserController {
     @GetMapping("/account-id-check/{accountId}")
     public DuplicateResponse accountIdDuplicatedCheck(@PathVariable String accountId) {
         return accountIdDuplicatedCheckService.accountIdDuplicatedCheck(accountId);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/user-data")
+    public UserDataResponse queryUserData(@RequestBody @Valid UserDataRequest request) {
+        return queryUserDataService.queryUserDate(request);
     }
 }
