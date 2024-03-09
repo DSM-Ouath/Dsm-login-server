@@ -8,4 +8,5 @@ import java.util.UUID;
 
 public interface UserRepository extends JpaRepository<User, UUID> {
     Optional<User> findByAccountId(String accountId);
+    Boolean existsByGradeAndClassNumAndNum(Integer grade, Integer classNum, Integer num);
 }
