@@ -53,7 +53,7 @@ public class UserController {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/user-data")
-    public UserDataResponse queryUserData(@RequestParam("account_id") String accountId, @RequestBody @Valid UserDataRequest request) {
-        return queryUserDataService.queryUserDate(accountId, request);
+    public UserDataResponse queryUserData(@RequestParam("account_id") String accountId, @RequestParam("password") String password) {
+        return queryUserDataService.queryUserDate(accountId, password);
     }
 }
