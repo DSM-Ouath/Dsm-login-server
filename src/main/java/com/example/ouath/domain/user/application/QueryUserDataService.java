@@ -37,7 +37,7 @@ public class QueryUserDataService {
                 .grade(user.getGrade())
                 .class_num(user.getClassNum())
                 .num(user.getNum())
-                .user_role(user.getRole())
+                .user_role(String.valueOf(user.getRole()))
                 .build();
     }
 }

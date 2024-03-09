@@ -26,5 +26,5 @@ public class UserDataResponse {
 
     private Integer num;
 
-    private UserRole user_role;
+    private String user_role;
 }
