@@ -20,9 +20,9 @@ public class QueryUserDataService {
     private final PasswordEncoder passwordEncoder;
 
     @Transactional(readOnly = true)
-    public UserDataResponse queryUserDate(UserDataRequest request) {
+    public UserDataResponse queryUserDate(String accountId, UserDataRequest request) {
 
-        User user = userRepository.findByAccountId(request.getAccountId())
+        User user = userRepository.findByAccountId(accountId)
                 .orElseThrow(()-> UserNotFoundException.EXCEPTION);
 
         if(!passwordEncoder.matches(request.getPassword(), user.getPassword()))
