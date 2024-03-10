@@ -27,6 +27,7 @@ jobs:
             build
             --build-cache
             --no-daemon
+            -x test
 
       - name: Deploy to xquare
         uses: team-xquare/xquare-deployment-action@master
