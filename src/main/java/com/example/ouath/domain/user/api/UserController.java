@@ -64,7 +64,7 @@ public class UserController {
 
         @ResponseStatus(HttpStatus.OK)
     @GetMapping("/user-all")
-    public List<User> queryAllUser(@RequestParam("secret_key") String secretKey) {
+    public List<UserDataResponse> queryAllUser(@RequestParam("secret_key") String secretKey) {
         return queryAllUserService.queryAllUser(secretKey);
     }
 }
