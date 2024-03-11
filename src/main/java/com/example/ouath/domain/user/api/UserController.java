@@ -8,6 +8,7 @@ import com.example.ouath.domain.user.application.SignupService;
 import com.example.ouath.domain.user.domain.User;
 import com.example.ouath.domain.user.dto.request.SignupRequest;
 import com.example.ouath.domain.user.dto.response.DuplicateResponse;
+import com.example.ouath.domain.user.dto.response.UserAllResponse;
 import com.example.ouath.domain.user.dto.response.UserDataResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -64,7 +65,7 @@ public class UserController {
 
         @ResponseStatus(HttpStatus.OK)
     @GetMapping("/user-all")
-    public List<UserDataResponse> queryAllUser(@RequestParam("secret_key") String secretKey) {
+    public List<UserAllResponse> queryAllUser(@RequestParam("secret_key") String secretKey) {
         return queryAllUserService.queryAllUser(secretKey);
     }
 }

@@ -3,6 +3,7 @@ package com.example.ouath.domain.user.application;
 import com.example.ouath.domain.user.dao.UserRepository;
 import com.example.ouath.domain.user.domain.User;
 import com.example.ouath.domain.user.domain.enums.UserRole;
+import com.example.ouath.domain.user.dto.response.UserAllResponse;
 import com.example.ouath.domain.user.dto.response.UserDataResponse;
 import com.example.ouath.domain.user.exception.InvalidUserException;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +24,7 @@ public class QueryAllUserService {
     private String yamlSecretKey;
 
     @Transactional(readOnly = true)
-    public List<UserDataResponse> queryAllUser(String secretKey) {
+    public List<UserAllResponse> queryAllUser(String secretKey) {
         if(!yamlSecretKey.equals(secretKey)) throw InvalidUserException.EXCEPTION;
 
         return userRepository.findAll()
@@ -31,7 +32,7 @@ public class QueryAllUserService {
                 .filter(user -> user.getRole().equals(UserRole.STU))
                 .map(
                         it ->
-                        UserDataResponse.builder()
+                        UserAllResponse.builder()
                                 .id(it.getId())
                                 .name(it.getName())
                                 .grade(it.getGrade())
