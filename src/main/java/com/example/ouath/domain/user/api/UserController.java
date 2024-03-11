@@ -7,6 +7,7 @@ import com.example.ouath.domain.user.application.QueryUserDataService;
 import com.example.ouath.domain.user.application.SignupService;
 import com.example.ouath.domain.user.domain.User;
 import com.example.ouath.domain.user.dto.request.SignupRequest;
+import com.example.ouath.domain.user.dto.request.UserDataRequest;
 import com.example.ouath.domain.user.dto.response.DuplicateResponse;
 import com.example.ouath.domain.user.dto.response.UserDataResponse;
 import jakarta.validation.Valid;
@@ -58,8 +59,8 @@ public class UserController {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/user-data")
-    public UserDataResponse queryUserData(@RequestParam("account_id") String accountId, @RequestParam("password") String password) {
-        return queryUserDataService.queryUserDate(accountId, password);
+    public UserDataResponse queryUserData(@RequestBody @Valid UserDataRequest request) {
+        return queryUserDataService.queryUserDate(request);
     }
 
     @ResponseStatus(HttpStatus.OK)
