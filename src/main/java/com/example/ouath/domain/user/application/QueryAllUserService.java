@@ -2,6 +2,7 @@ package com.example.ouath.domain.user.application;
 
 import com.example.ouath.domain.user.dao.UserRepository;
 import com.example.ouath.domain.user.domain.User;
+import com.example.ouath.domain.user.domain.enums.UserRole;
 import com.example.ouath.domain.user.dto.response.UserDataResponse;
 import com.example.ouath.domain.user.exception.InvalidUserException;
 import lombok.RequiredArgsConstructor;
@@ -27,7 +28,7 @@ public class QueryAllUserService {
 
         return userRepository.findAll()
                 .stream()
-                .filter(user -> "STU".equals(user.getRole()))
+                .filter(user -> user.getRole().equals(UserRole.STU))
                 .map(
                         it ->
                         UserDataResponse.builder()
