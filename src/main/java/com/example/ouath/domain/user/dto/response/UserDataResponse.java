@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Getter
@@ -27,4 +28,6 @@ public class UserDataResponse {
     private Integer num;
 
     private String user_role;
+
+    private LocalDate brith_day;
 }
