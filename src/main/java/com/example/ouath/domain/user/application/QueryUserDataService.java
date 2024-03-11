@@ -2,7 +2,6 @@ package com.example.ouath.domain.user.application;
 
 import com.example.ouath.domain.user.dao.UserRepository;
 import com.example.ouath.domain.user.domain.User;
-import com.example.ouath.domain.user.dto.request.UserDataRequest;
 import com.example.ouath.domain.user.dto.response.UserDataResponse;
 import com.example.ouath.domain.user.exception.PasswordMisMatchException;
 import com.example.ouath.domain.user.exception.UserNotFoundException;
@@ -10,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -20,12 +21,12 @@ public class QueryUserDataService {
     private final PasswordEncoder passwordEncoder;
 
     @Transactional(readOnly = true)
-    public UserDataResponse queryUserDate(UserDataRequest request) {
+    public UserDataResponse queryUserDate(Map<String, String> request) {
 
-        User user = userRepository.findByAccountId(request.getAccount_id())
+        User user = userRepository.findByAccountId(request.get("account_id"))
                 .orElseThrow(()-> UserNotFoundException.EXCEPTION);
 
-        if(!passwordEncoder.matches(request.getPassword(), user.getPassword()))
+        if(!passwordEncoder.matches(request.get("password"), user.getPassword()))
             throw PasswordMisMatchException.EXCEPTION;
 
         return UserDataResponse.builder()
