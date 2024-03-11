@@ -21,8 +21,10 @@ jwt:
   accessExpiration: 271000
   refreshExpiration: 604800
 
+key:
+  secret-key: ${SECRET_KEY}
+
 server:
   servlet:
     context-path: /dsm-login
   port: 8080
-
