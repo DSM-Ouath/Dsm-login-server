@@ -10,8 +10,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Map;
-
 @Service
 @RequiredArgsConstructor
 public class QueryUserDataService {
@@ -21,12 +19,12 @@ public class QueryUserDataService {
     private final PasswordEncoder passwordEncoder;
 
     @Transactional(readOnly = true)
-    public UserDataResponse queryUserDate(Map<String, String> request) {
+    public UserDataResponse queryUserDate(String accountId, String password) {
 
-        User user = userRepository.findByAccountId(request.get("account_id"))
+        User user = userRepository.findByAccountId(accountId)
                 .orElseThrow(()-> UserNotFoundException.EXCEPTION);
 
-        if(!passwordEncoder.matches(request.get("password"), user.getPassword()))
+        if(!passwordEncoder.matches(password, user.getPassword()))
             throw PasswordMisMatchException.EXCEPTION;
 
         return UserDataResponse.builder()

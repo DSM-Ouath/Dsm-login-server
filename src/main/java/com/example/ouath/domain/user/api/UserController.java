@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
@@ -59,11 +58,11 @@ public class UserController {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/user-data")
-    public UserDataResponse queryUserData(@RequestParam Map<String, String> request) {
-        return queryUserDataService.queryUserDate(request);
+    public UserDataResponse queryUserData(@RequestParam("account_id") String accountId, @RequestParam("password") String password) {
+        return queryUserDataService.queryUserDate(accountId, password);
     }
 
-    @ResponseStatus(HttpStatus.OK)
+        @ResponseStatus(HttpStatus.OK)
     @GetMapping("/user-all")
     public List<User> queryAllUser(@RequestParam("secret_key") String secretKey) {
         return queryAllUserService.queryAllUser(secretKey);
