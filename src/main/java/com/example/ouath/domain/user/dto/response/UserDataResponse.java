@@ -29,5 +29,5 @@ public class UserDataResponse {
 
     private String user_role;
 
-    private LocalDate brith_day;
+    private LocalDate birth_day;
 }

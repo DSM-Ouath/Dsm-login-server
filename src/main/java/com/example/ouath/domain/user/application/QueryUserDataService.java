@@ -37,7 +37,7 @@ public class QueryUserDataService {
                 .class_num(user.getClassNum())
                 .num(user.getNum())
                 .user_role(String.valueOf(user.getRole()))
-                .brith_day(user.getBirthDay())
+                .birth_day(user.getBirthDay())
                 .build();
     }
 }
