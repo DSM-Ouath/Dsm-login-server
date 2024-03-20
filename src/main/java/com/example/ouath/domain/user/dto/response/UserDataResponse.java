@@ -17,6 +17,8 @@ public class UserDataResponse {
 
     private String account_id;
 
+    private String password;
+
     private String name;
 
     private Integer grade;

@@ -30,6 +30,7 @@ public class QueryUserDataService {
         return UserDataResponse.builder()
                 .id(user.getId())
                 .account_id(user.getAccountId())
+                .password(user.getPassword())
                 .name(user.getName())
                 .grade(user.getGrade())
                 .class_num(user.getClassNum())
