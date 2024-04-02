@@ -2,6 +2,7 @@ package com.example.ouath.domain.user.api;
 
 import com.example.ouath.domain.user.application.AccountIdDuplicatedCheckService;
 import com.example.ouath.domain.user.application.ClassNumberDuplicatedCheckService;
+import com.example.ouath.domain.user.application.ModifyProfileService;
 import com.example.ouath.domain.user.application.QueryAllUserService;
 import com.example.ouath.domain.user.application.QueryUserDataService;
 import com.example.ouath.domain.user.application.SignupService;
@@ -14,6 +15,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -39,6 +41,8 @@ public class UserController {
 
     private final QueryAllUserService queryAllUserService;
 
+    private final ModifyProfileService modifyProfileService;
+
 //    @ResponseStatus(HttpStatus.CREATED)
 //    @PostMapping("/signup")
 //    public void signup(@RequestBody @Valid SignupRequest request) {
@@ -63,9 +67,15 @@ public class UserController {
         return queryUserDataService.queryUserDate(accountId, password);
     }
 
-        @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.OK)
     @GetMapping("/user-all")
     public List<UserAllResponse> queryAllUser(@RequestParam("secret_key") String secretKey) {
         return queryAllUserService.queryAllUser(secretKey);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @PatchMapping("/modify-profile")
+    public void modifyProfile(@RequestParam("account_id") String accountId, @RequestParam("profile_img_url") String profileImgUrl) {
+        modifyProfileService.modifyProfile(accountId, profileImgUrl);
     }
 }
