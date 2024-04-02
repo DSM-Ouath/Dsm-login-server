@@ -66,4 +66,8 @@ public class User {
     @Column(name = "role")
     @Enumerated(value = EnumType.STRING)
     private UserRole role;
+
+    public void modifyProfile(String profileImgUrl) {
+        this.profileFileName = profileImgUrl;
+    }
 }
