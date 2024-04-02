@@ -1,6 +1,5 @@
 package com.example.ouath.domain.user.dto.response;
 
-import com.example.ouath.domain.user.domain.enums.UserRole;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -30,4 +29,6 @@ public class UserDataResponse {
     private String user_role;
 
     private LocalDate birth_day;
+
+    private String profileImgUrl;
 }

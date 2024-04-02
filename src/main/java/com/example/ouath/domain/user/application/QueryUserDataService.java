@@ -37,6 +37,7 @@ public class QueryUserDataService {
                 .num(user.getNum())
                 .user_role(String.valueOf(user.getRole()))
                 .birth_day(user.getBirthDay())
+                .profileImgUrl(user.getProfileFileName())
                 .build();
     }
 }
