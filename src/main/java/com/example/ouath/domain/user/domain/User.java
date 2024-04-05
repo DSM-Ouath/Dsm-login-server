@@ -59,7 +59,7 @@ public class User {
     @Column(name = "device_token")
     private String deviceToken;
 
-    @Column(name = "club", length = 30)
+    @Column(name = "club", columnDefinition = "VARCHAR(255)")
     private String club;
 
     @Column(name = "state")
