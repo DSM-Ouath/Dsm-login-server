@@ -32,5 +32,5 @@ public class UserDataResponse {
 
     private String profileImgUrl;
 
-    private String club;
+    private String clubName;
 }
