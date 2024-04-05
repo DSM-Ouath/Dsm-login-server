@@ -12,6 +12,7 @@ import java.util.UUID;
 public class UserAllResponse {
 
     private UUID id;
+
     private String name;
 
     private Integer grade;
@@ -20,4 +21,5 @@ public class UserAllResponse {
 
     private Integer num;
 
+    private String club;
 }

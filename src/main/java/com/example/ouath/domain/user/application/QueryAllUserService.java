@@ -1,10 +1,8 @@
 package com.example.ouath.domain.user.application;
 
 import com.example.ouath.domain.user.dao.UserRepository;
-import com.example.ouath.domain.user.domain.User;
 import com.example.ouath.domain.user.domain.enums.UserRole;
 import com.example.ouath.domain.user.dto.response.UserAllResponse;
-import com.example.ouath.domain.user.dto.response.UserDataResponse;
 import com.example.ouath.domain.user.exception.InvalidUserException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -38,6 +36,7 @@ public class QueryAllUserService {
                                 .grade(it.getGrade())
                                 .class_num(it.getClassNum())
                                 .num(it.getNum())
+                                .club(it.getClub())
                                 .build()
                 )
                 .collect(Collectors.toList());
