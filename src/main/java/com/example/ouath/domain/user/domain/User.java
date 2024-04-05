@@ -59,6 +59,9 @@ public class User {
     @Column(name = "device_token")
     private String deviceToken;
 
+    @Column(name = "club", length = 30)
+    private String club;
+
     @Column(name = "state")
     @Enumerated(value = EnumType.STRING)
     private UserState userState;
