@@ -31,4 +31,6 @@ public class UserDataResponse {
     private LocalDate birth_day;
 
     private String profileImgUrl;
+
+    private String club;
 }
