@@ -8,6 +8,7 @@ import com.example.ouath.domain.user.application.QueryUserDataService;
 import com.example.ouath.domain.user.application.SignupService;
 import com.example.ouath.domain.user.domain.User;
 import com.example.ouath.domain.user.dto.request.SignupRequest;
+import com.example.ouath.domain.user.dto.request.UserDataRequest;
 import com.example.ouath.domain.user.dto.response.DuplicateResponse;
 import com.example.ouath.domain.user.dto.response.UserAllResponse;
 import com.example.ouath.domain.user.dto.response.UserDataResponse;
@@ -62,9 +63,9 @@ public class UserController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping("/user-data")
-    public UserDataResponse queryUserData(@RequestParam("account_id") String accountId, @RequestParam("password") String password) {
-        return queryUserDataService.queryUserDate(accountId, password);
+    @PostMapping("/user-data")
+    public UserDataResponse queryUserData(@RequestBody UserDataRequest request) {
+        return queryUserDataService.queryUserDate(request);
     }
 
     @ResponseStatus(HttpStatus.OK)
@@ -78,4 +79,5 @@ public class UserController {
     public void modifyProfile(@RequestParam("account_id") String accountId, @RequestParam("profile_img_url") String profileImgUrl) {
         modifyProfileService.modifyProfile(accountId, profileImgUrl);
     }
+
 }
