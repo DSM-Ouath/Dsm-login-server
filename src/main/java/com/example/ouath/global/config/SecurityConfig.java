@@ -60,7 +60,7 @@ public class SecurityConfig {
                 )
 
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/user/**")
+                        .requestMatchers("/user/**", "/test/**")
                         .permitAll()
                 )
 
