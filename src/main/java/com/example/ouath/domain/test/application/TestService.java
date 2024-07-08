@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class TestService {
 
-    public TestResponse test(String request, String request2) {
-        return new TestResponse(request, request2);
+    public TestResponse test(TestRequest request) {
+        return new TestResponse(request);
     }
 }

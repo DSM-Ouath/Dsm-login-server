@@ -18,7 +18,7 @@ public class TestController {
 
     @ResponseStatus(HttpStatus.OK)
     @PostMapping("/test")
-    public TestResponse test(@RequestBody String request, String request2) {
-        return testService.test(request, request2);
+    public TestResponse test(@RequestBody TestRequest request) {
+        return testService.test(request);
     }
 }
