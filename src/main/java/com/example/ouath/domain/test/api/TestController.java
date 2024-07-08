@@ -5,7 +5,7 @@ import com.example.ouath.domain.test.dto.request.TestRequest;
 import com.example.ouath.domain.test.dto.response.TestResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,7 +17,7 @@ public class TestController {
     private final TestService testService;
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping("/test")
+    @PostMapping("/test")
     public TestResponse test(@RequestBody TestRequest request) {
         return testService.test(request);
     }
