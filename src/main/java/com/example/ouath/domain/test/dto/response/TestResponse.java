@@ -6,8 +6,10 @@ import lombok.Getter;
 public class TestResponse {
 
     private String result = "fail";
+    private String result2 = "fail";
 
-    public TestResponse(String result) {
+    public TestResponse(String result, String result2) {
         this.result = result;
+        this.result2 = result2;
     }
 }
