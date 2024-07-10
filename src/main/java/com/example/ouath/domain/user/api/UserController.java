@@ -2,11 +2,12 @@ package com.example.ouath.domain.user.api;
 
 import com.example.ouath.domain.user.application.AccountIdDuplicatedCheckService;
 import com.example.ouath.domain.user.application.ClassNumberDuplicatedCheckService;
+import com.example.ouath.domain.user.application.ModifyPasswordService;
 import com.example.ouath.domain.user.application.ModifyProfileService;
 import com.example.ouath.domain.user.application.QueryAllUserService;
 import com.example.ouath.domain.user.application.QueryUserDataService;
 import com.example.ouath.domain.user.application.SignupService;
-import com.example.ouath.domain.user.domain.User;
+import com.example.ouath.domain.user.dto.request.AuthRequest;
 import com.example.ouath.domain.user.dto.request.SignupRequest;
 import com.example.ouath.domain.user.dto.request.UserDataRequest;
 import com.example.ouath.domain.user.dto.response.DuplicateResponse;
@@ -44,6 +45,8 @@ public class UserController {
 
     private final ModifyProfileService modifyProfileService;
 
+    private final ModifyPasswordService modifyPasswordService;
+
 //    @ResponseStatus(HttpStatus.CREATED)
 //    @PostMapping("/signup")
 //    public void signup(@RequestBody @Valid SignupRequest request) {
@@ -80,4 +83,9 @@ public class UserController {
         modifyProfileService.modifyProfile(accountId, profileImgUrl);
     }
 
+    @ResponseStatus(HttpStatus.OK)
+    @PatchMapping("/modify-password")
+    public void modifyPassword(@RequestBody AuthRequest request) {
+        modifyPasswordService.modifyPassword(request);
+    }
 }

@@ -73,4 +73,8 @@ public class User {
     public void modifyProfile(String profileImgUrl) {
         this.profileFileName = profileImgUrl;
     }
+
+    public void modifyPassword(String encodedPassword) {
+        this.password = encodedPassword;
+    }
 }
