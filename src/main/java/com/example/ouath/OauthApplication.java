@@ -6,10 +6,10 @@ import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 
 @SpringBootApplication
 @ConfigurationPropertiesScan
-public class OuathApplication {
+public class OauthApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(OuathApplication.class, args);
+        SpringApplication.run(OauthApplication.class, args);
     }
 
 }
