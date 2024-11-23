@@ -83,9 +83,9 @@ public class UserController {
         modifyProfileService.modifyProfile(accountId, profileImgUrl);
     }
 
-    @ResponseStatus(HttpStatus.OK)
-    @PatchMapping("/modify-password")
-    public void modifyPassword(@RequestBody AuthRequest request) {
-        modifyPasswordService.modifyPassword(request);
-    }
+//    @ResponseStatus(HttpStatus.OK)
+//    @PatchMapping("/modify-password")
+//    public void modifyPassword(@RequestBody AuthRequest request) {
+//        modifyPasswordService.modifyPassword(request);
+//    }
 }
