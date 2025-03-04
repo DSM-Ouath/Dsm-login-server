@@ -28,7 +28,7 @@ public class SignupService {
         userRepository.save(
                 User.builder()
                         .name(request.getName())
-                        .entranceYear(24) // 일단은 입학년도를 24년도로 고정해둠
+                        .entranceYear(25) // 일단은 입학년도를 25년도로 고정해둠
                         .birthDay(request.getBirth_day())
                         .grade(request.getClass_number()/1000)
                         .classNum(request.getClass_number()%1000/100)
