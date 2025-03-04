@@ -28,3 +28,4 @@ server:
   servlet:
     context-path: /dsm-login
   port: 8080
+
